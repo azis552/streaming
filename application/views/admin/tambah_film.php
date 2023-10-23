@@ -28,7 +28,7 @@
                         Kembali
                     </a>
                 </div>
-                <form action="" method="post">
+                <form action="<?= base_url() ?>admin/simpan_film" method="post" enctype="multipart/form-data">
                     <div class="card-body">
                         <label for="">Judul</label>
                         <input type="text" class="form-control" name="judul">
@@ -36,6 +36,11 @@
                         <input type="text" class="form-control" name="link">
                         <label for="">Genre</label>
                         <input type="text" class="form-control" name="genre">
+                        <label for="">Level</label>
+                        <select name="level" id="" class="form-control">
+                            <option value="all">Semua</option>
+                            <option value="premium">Premium</option>
+                        </select>
                         <label for="">Foto</label>
                         <input type="file" class="form-control" name="foto">
                     </div>

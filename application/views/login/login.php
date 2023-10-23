@@ -7,10 +7,33 @@
         <div class="card">
             <div class="card-body login-card-body">
                 <p class="login-box-msg">Sign in to start your session</p>
-
-                <form action="../../index3.html" method="post">
+                <?php
+                $message = $this->session->flashdata('message');
+                if ($message == "sukses simpan") {
+                    ?>
+                        <script type="text/javascript">
+                            Swal.fire(
+                            'Success',
+                            'Berhasil Registrasi User !',
+                            'success'
+                            )
+                        </script>
+                        <?php }?>
+                <?php
+                
+                if ($message == "error kosong") {
+                    ?>
+                        <script type="text/javascript">
+                            Swal.fire(
+                            'Error !',
+                            'Username dan Password Kosong',
+                            'error'
+                            )
+                        </script>
+                        <?php }?>
+                <form action="<?= base_url() ?>user/login" method="post">
                     <div class="input-group mb-3">
-                        <input type="email" class="form-control" placeholder="Email">
+                        <input type="email" class="form-control" name="username" placeholder="Email">
                         <div class="input-group-append">
                             <div class="input-group-text">
                                 <span class="fas fa-envelope"></span>
@@ -18,7 +41,7 @@
                         </div>
                     </div>
                     <div class="input-group mb-3">
-                        <input type="password" class="form-control" placeholder="Password">
+                        <input type="password" class="form-control" name="password" placeholder="Password">
                         <div class="input-group-append">
                             <div class="input-group-text">
                                 <span class="fas fa-lock"></span>
@@ -54,10 +77,10 @@
                 <!-- /.social-auth-links -->
 
                 <p class="mb-1">
-                    <a href="<?= base_url('admin/forgot_password') ?>">I forgot my password</a>
+                    <a href="<?=base_url('admin/forgot_password')?>">I forgot my password</a>
                 </p>
                 <p class="mb-0">
-                    <a href="<?= base_url('admin/register') ?>" class="text-center">Register a new membership</a>
+                    <a href="<?=base_url('admin/register')?>" class="text-center">Register a new membership</a>
                 </p>
             </div>
             <!-- /.login-card-body -->
