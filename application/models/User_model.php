@@ -7,7 +7,10 @@ class User_model extends CI_Model
     
     public function select()
     {
-
+        $this->db->select();
+        $this->db->from($this->table);
+        $data = $this->db->get()->result();
+        return $data;
     }                        
     public function store()
     {

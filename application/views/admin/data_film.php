@@ -36,17 +36,35 @@
                                 <th>Judul</th>
                                 <th>Foto</th>
                                 <th>Genre</th>
+                                <th>Link</th>
+                                <th>Level</th>
                                 <th>Aksi</th>
                             </tr>
                         </thead>
                         <tbody>
+                            <?php $x=1;
+                                foreach($film as $i) :
+                            ?>
                             <tr>
-                                <td>1</td>
-                                <td>Naruto</td>
-                                <td>Image</td>
-                                <td>Anime</td>
-                                <td>Aksi</td>
+                                <td><?= $x ?></td>
+                                <td><?= $i->judul ?></td>
+                                <td>
+                                    <img src="<?= base_url('') ?>assets/gambar_film/<?= $i->foto ?>" 
+                                    alt="gambar film" width="60" height="60">
+                                </td>
+                                <td><?= $i->genre ?></td>
+                                <td><?= $i->link ?></td>
+                                <td><?= $i->level ?></td>
+                                <td>
+                                    <a href="<?= base_url() ?>admin/detail_film?id=<?= $i->id_film?>" class="btn btn-info">detail</a>
+                                    <a href="<?= base_url() ?>admin/edit_film?id=<?= $i->id_film?>" class="btn btn-warning">edit</a>
+                                    <a href="" class="btn btn-danger">hapus</a>
+                                </td>
                             </tr>
+                            <?php
+                                $x++;
+                                endforeach;
+                            ?>
                         </tbody>
                     </table>
                 </div>
